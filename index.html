@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Popolari — La tua casa lontano da casa | Bitonto, Puglia</title>
+  <meta name="description" content="Appartamento turistico nel cuore del centro storico di Bitonto, Puglia. Scopri Le Popolari: un'esperienza autentica, calda e cinematografica." />
+  <meta name="keywords" content="appartamento turistico Bitonto, affitto breve Puglia, Le Popolari, casa vacanze Bitonto, centro storico Puglia" />
+  <meta name="author" content="Le Popolari" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.lepopolari.it/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.lepopolari.it/" />
+  <meta property="og:title" content="Le Popolari — La tua casa lontano da casa" />
+  <meta property="og:description" content="Appartamento turistico nel cuore del centro storico di Bitonto, Puglia." />
+  <meta property="og:image" content="https://www.lepopolari.it/assets/og-image.jpg" />
+  <meta property="og:locale" content="it_IT" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Le Popolari — La tua casa lontano da casa" />
+  <meta name="twitter:description" content="Appartamento turistico nel cuore del centro storico di Bitonto, Puglia." />
+  <meta name="twitter:image" content="https://www.lepopolari.it/assets/og-image.jpg" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Le Popolari",
+    "description": "Appartamento di 80mq ristrutturato nel centro di Bitonto, a 300m dalla città vecchia e 9km dall'aeroporto di Bari. Cucina abitabile, 2 camere, bagno con doccia a pavimento, zona lavanderia.",
+    "url": "https://www.lepopolari.it",
+    "telephone": "+3715183225",
+    "email": "info.lepopolari@gmail.com",
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "Numero di licenza",
+      "value": "BA07201191000042472"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Ammiraglio Vacca 35",
+      "addressLocality": "Bitonto",
+      "addressRegion": "Puglia",
+      "postalCode": "70032",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.1089,
+      "longitude": 16.6742
+    },
+    "numberOfRooms": 2,
+    "floorLevel": "0",
+    "amenityFeature": [
+      {"@type": "LocationFeatureSpecification", "name": "WiFi gratuito", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Aria condizionata", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Riscaldamento", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Cucina attrezzata", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Lavatrice", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Lavastoviglie", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Asciugatrice", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Parcheggio in strada gratuito", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Monitor a schermo piatto", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Cassaforte", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Biancheria inclusa", "value": true}
+    ],
+    "checkinTime": "16:00",
+    "checkoutTime": "10:00",
+    "priceRange": "€€",
+    "availableLanguage": ["Italiano", "Inglese"],
+    "petsAllowed": false,
+    "smokingAllowed": false
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════
+       COOKIE BANNER
+  ═══════════════════════════════════════════════════ -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p>Utilizziamo i cookie per migliorare la tua esperienza. <a href="#" class="cookie-link">Scopri di più</a></p>
+    <div class="cookie-actions">
+      <button id="cookie-decline" class="cookie-btn cookie-btn--outline">Rifiuta</button>
+      <button id="cookie-accept" class="cookie-btn cookie-btn--fill">Accetta</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       0. PRELOADER
+  ═══════════════════════════════════════════════════ -->
+  <div id="preloader" class="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <div class="preloader__logo">
+        <span class="preloader__logo-text">Le Popolari</span>
+        <span class="preloader__logo-sub">Bitonto · Puglia</span>
+      </div>
+      <div class="preloader__bar-wrap">
+        <div id="preloader-bar" class="preloader__bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       NAVBAR (appare dopo scroll)
+  ═══════════════════════════════════════════════════ -->
+  <nav id="navbar" class="navbar" role="navigation" aria-label="Navigazione principale">
+    <a href="#hero" class="navbar__logo">Le Popolari</a>
+    <button class="navbar__burger" id="navbar-burger" aria-label="Apri menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navbar__links" id="navbar-links" role="list">
+      <li><a href="#rooms" class="navbar__link">L'appartamento</a></li>
+      <li><a href="#stats" class="navbar__link">Dettagli</a></li>
+      <li><a href="#bitonto" class="navbar__link">Bitonto</a></li>
+      <li><a href="#reviews" class="navbar__link">Recensioni</a></li>
+      <li><a href="#contact" class="navbar__link navbar__link--cta">Prenota</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════
+       1. HERO
+  ═══════════════════════════════════════════════════ -->
+  <section id="hero" class="hero" aria-label="Hero">
+
+    <div class="hero__content">
+      <p class="hero__eyebrow">Bitonto · 300m dal Centro Storico · 9km dall'Aeroporto</p>
+      <h1 class="hero__title">
+        <span id="typewriter-target" class="hero__typewriter"></span><span class="hero__cursor" aria-hidden="true">|</span>
+      </h1>
+      <p class="hero__slogan" id="hero-slogan">La tua casa lontano da casa</p>
+      <a href="#rooms" class="hero__cta" aria-label="Scopri l'appartamento">
+        <span class="hero__cta-text">Entra in casa</span>
+        <span class="hero__cta-arrow" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
+        </span>
+      </a>
+
+      <!-- BOOKING BAR —— Krossbooking -->
+      <form class="hero__booking" id="booking-form" novalidate aria-label="Verifica disponibilità">
+
+        <div class="hero__booking-field hero__booking-field--date" id="bk-field-from" role="button" tabindex="0" aria-label="Data di arrivo">
+          <span class="hero__booking-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Arrivo
+          </span>
+          <span class="hero__booking-display" id="bk-display-from">Aggiungi data</span>
+          <input type="hidden" id="booking-from" name="from" />
+        </div>
+
+        <div class="hero__booking-divider" aria-hidden="true"></div>
+
+        <div class="hero__booking-field hero__booking-field--date" id="bk-field-to" role="button" tabindex="0" aria-label="Data di partenza">
+          <span class="hero__booking-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Partenza
+          </span>
+          <span class="hero__booking-display" id="bk-display-to">Aggiungi data</span>
+          <input type="hidden" id="booking-to" name="to" />
+        </div>
+
+        <div class="hero__booking-divider" aria-hidden="true"></div>
+
+        <div class="hero__booking-field">
+          <span class="hero__booking-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Ospiti
+          </span>
+          <div class="hero__booking-stepper">
+            <button type="button" class="bk-step" id="bk-guests-minus" aria-label="Diminuisci ospiti">−</button>
+            <span class="bk-step__val" id="bk-guests-val">2</span>
+            <button type="button" class="bk-step" id="bk-guests-plus" aria-label="Aumenta ospiti">+</button>
+          </div>
+          <input type="hidden" id="booking-guests" name="guests" value="2" />
+        </div>
+
+        <button class="hero__booking-cta" type="submit">
+          Verifica disponibilità
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizzatore foto">
+    <button class="lightbox__close" id="lightbox-close" aria-label="Chiudi">&#215;</button>
+    <button class="lightbox__prev" id="lightbox-prev" aria-label="Foto precedente">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <img class="lightbox__img" id="lightbox-img" src="" alt="" />
+    <button class="lightbox__next" id="lightbox-next" aria-label="Foto successiva">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+
+  <!-- Calendario overlay -->
+  <div class="cal-overlay" id="calOverlay">
+    <div class="cal-backdrop" id="calBackdrop"></div>
+    <div class="cal-panel" id="calPanel">
+      <div class="cal-panel-header">
+        <button class="cal-nav" id="calPrev">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="cal-titles" id="calTitles"></div>
+        <button class="cal-nav" id="calNext">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+      <div class="cal-panel-grids" id="calPanelGrids"></div>
+      <div class="cal-panel-footer">
+        <span class="cal-nights-label" id="calNights"></span>
+        <button class="cal-confirm" id="calConfirm">Conferma</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       2. ENTRA IN CASA
+  ═══════════════════════════════════════════════════ -->
+  <section id="rooms" class="sezione">
+    <div class="sezione__inner">
+      
+      <div class="rooms__header" data-animate>
+        <span class="rooms__eyebrow">IL COMFORT</span>
+        <h2 class="rooms__section-title">Entra in casa</h2>
+      </div>
+
+      <div class="rooms__grid">
+        
+        <div class="rooms__row">
+          <div class="rooms__visuals" data-animate="fade-left">
+            <img src="assets/cucina-3.jpg" alt="Ambiente Giorno" class="rooms__main-img" loading="lazy">
+            <div class="rooms__carousel-wrap" data-carousel>
+              <div class="rooms__gallery rooms__gallery--carousel">
+                <div class="rooms__carousel-track">
+                  <img src="assets/cucina-1.jpg" alt="Cucina 1" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/cucina-2.jpg" alt="Cucina 2" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/cucina-4.jpg" alt="Cucina 4" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/cucina-5.jpg" alt="Cucina 5" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/cucina-6.jpg" alt="Cucina 6" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/cucina-7.jpg" alt="Cucina 7" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/cucina-8.jpg" alt="Cucina 8" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/ingresso-1.jpg" alt="Ingresso 1" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/ingresso-2.jpg" alt="Ingresso 2" class="rooms__gallery-img" loading="lazy" />
+                </div>
+              </div>
+              <button class="rooms__carousel-prev" aria-label="Precedente">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="rooms__carousel-next" aria-label="Successiva">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="rooms__content" data-animate="fade-right">
+            <span class="rooms__room-subtitle">Cucina &amp; Area Relax</span>
+            <h3 class="rooms__room-title">Ambiente Giorno</h3>
+            <p class="rooms__room-desc">Il cuore della casa. Una cucina abitabile completamente attrezzata si apre naturalmente su un'area relax accogliente, con divano e tavolo da pranzo. Pietra viva, luce naturale e tutto ciò che serve per vivere l'appartamento come a casa propria.</p>
+          </div>
+        </div>
+
+        <div class="rooms__row rooms__row--reverse">
+          <div class="rooms__visuals" data-animate="fade-right">
+            <img src="assets/camera-verde-1.jpg" alt="Camera Superior" class="rooms__main-img" loading="lazy">
+            <div class="rooms__carousel-wrap" data-carousel>
+              <div class="rooms__gallery rooms__gallery--carousel">
+                <div class="rooms__carousel-track">
+                  <img src="assets/camera-verde-2.jpg" alt="Camera Verde 2" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/camera-verde-3.jpg" alt="Camera Verde 3" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/camera-verde-4.jpg" alt="Camera Verde 4" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/camera-verde-5.jpg" alt="Camera Verde 5" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/camera-verde-6.jpg" alt="Camera Verde 6" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/camera-verde-7.jpg" alt="Camera Verde 7" class="rooms__gallery-img" loading="lazy" />
+                </div>
+              </div>
+              <button class="rooms__carousel-prev" aria-label="Precedente">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="rooms__carousel-next" aria-label="Successiva">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="rooms__content" data-animate="fade-left">
+            <span class="rooms__room-subtitle">Camera Matrimoniale</span>
+            <h3 class="rooms__room-title">Camera Superior</h3>
+            <p class="rooms__room-desc">Spaziosa e raffinata, con letto matrimoniale, armadio a cabina e pareti in pietra storica. Aria condizionata, biancheria inclusa e un silenzio rigenerante che rende ogni notte un vero riposo.</p>
+          </div>
+        </div>
+
+        <div class="rooms__row">
+          <div class="rooms__visuals" data-animate="fade-left">
+            <img src="assets/camera-gialla-1.jpg" alt="Camera Comfort" class="rooms__main-img" loading="lazy">
+            <div class="rooms__carousel-wrap" data-carousel>
+              <div class="rooms__gallery rooms__gallery--carousel">
+                <div class="rooms__carousel-track">
+                  <img src="assets/camera-gialla-2.jpg" alt="Camera Gialla 2" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/camera-gialla-3.jpg" alt="Camera Gialla 3" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/camera-gialla-4.jpg" alt="Camera Gialla 4" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/camera-gialla-5.jpg" alt="Camera Gialla 5" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/camera-gialla-6.jpg" alt="Camera Gialla 6" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/camera-gialla-7.jpg" alt="Camera Gialla 7" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/camera-gialla-8.jpg" alt="Camera Gialla 8" class="rooms__gallery-img" loading="lazy" />
+                </div>
+              </div>
+              <button class="rooms__carousel-prev" aria-label="Precedente">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="rooms__carousel-next" aria-label="Successiva">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="rooms__content" data-animate="fade-right">
+            <span class="rooms__room-subtitle">Camera Singola o Doppia</span>
+            <h3 class="rooms__room-title">Camera Comfort</h3>
+            <p class="rooms__room-desc">Raccolta e versatile, perfetta per una persona o una coppia. Atmosfera intima con arredi curati, aria condizionata e tutta la comodità necessaria per un soggiorno sereno.</p>
+          </div>
+        </div>
+
+        <div class="rooms__row rooms__row--reverse">
+          <div class="rooms__visuals" data-animate="fade-right">
+            <img src="assets/bagno-4.jpg" alt="Bagno" class="rooms__main-img" loading="lazy">
+            <div class="rooms__carousel-wrap" data-carousel>
+              <div class="rooms__gallery rooms__gallery--carousel">
+                <div class="rooms__carousel-track">
+                  <img src="assets/bagno-1.jpg" alt="Bagno 1" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/bagno-2.jpg" alt="Bagno 2" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/bagno-3.jpg" alt="Bagno 3" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/bagno-5.jpg" alt="Bagno 5" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/bagno-6.jpg" alt="Bagno 6" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/bagno-7.jpg" alt="Bagno 7" class="rooms__gallery-img" loading="lazy" />
+                  <img src="assets/bagno-8.jpg" alt="Bagno 8" class="rooms__gallery-img" loading="lazy" />
+                </div>
+              </div>
+              <button class="rooms__carousel-prev" aria-label="Precedente">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="rooms__carousel-next" aria-label="Successiva">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="rooms__content" data-animate="fade-left">
+            <span class="rooms__room-subtitle">Bagno Privato</span>
+            <h3 class="rooms__room-title">Bagno</h3>
+            <p class="rooms__room-desc">Bagno privato con doccia, bidet e asciugacapelli. Prodotti da bagno in omaggio, biancheria inclusa e tutto il necessario per iniziare e chiudere la giornata con cura.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       3. L'APPARTAMENTO — cifre animate
+  ═══════════════════════════════════════════════════ -->
+  <section id="stats" class="stats" aria-label="Cifre appartamento">
+    <div class="stats__inner">
+      <p class="stats__eyebrow">L'appartamento</p>
+      <h2 class="stats__title" data-animate="fade-up">Spazio, comfort e storia</h2>
+      <p class="stats__desc" data-animate="fade-up">80 m² al piano rialzato, nel cuore del quartiere: supermercato, bar, gelateria, tabacchi, rosticceria, mercato rionale e una scelta di ristoranti e pizzerie a pochi passi. Vivere Bitonto come un locale, non come un turista.</p>
+      <div class="stats__numbers" data-animate="fade-up">
+        <div class="stats__item" style="flex:1">
+          <span class="stats__num" data-target="80" data-suffix=" m²">0</span>
+          <span class="stats__label">di spazio</span>
+        </div>
+        <div class="stats__divider" aria-hidden="true"></div>
+        <div class="stats__item" style="flex:1.4">
+          <span class="stats__num stats__num--static">Piano rialzato</span>
+          <span class="stats__label">accessibile</span>
+        </div>
+        <div class="stats__divider" aria-hidden="true"></div>
+        <div class="stats__item" style="flex:1">
+          <span class="stats__num" data-target="6" data-suffix=" ospiti">0</span>
+          <span class="stats__label">massimo</span>
+        </div>
+      </div>
+
+      <!-- 6 card highlight -->
+      <div class="stats__highlights" data-animate="fade-up">
+        <div class="stats__highlight" style="--delay:0s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>
+          <span>WiFi ultra-veloce</span>
+          <small>200 Mbps gratuito</small>
+        </div>
+        <div class="stats__highlight" style="--delay:0.08s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1 .07-1.64"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0-.07-1.64"/></svg>
+          <span>Aria condizionata</span>
+          <small>In ogni stanza</small>
+        </div>
+        <div class="stats__highlight" style="--delay:0.16s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Cucina abitabile</span>
+          <small>Completamente attrezzata</small>
+        </div>
+        <div class="stats__highlight" style="--delay:0.24s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span>Biancheria inclusa</span>
+          <small>Letto &amp; bagno</small>
+        </div>
+        <div class="stats__highlight" style="--delay:0.32s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span>Parcheggio vicino</span>
+          <small>Su strada, facile da parcheggiare</small>
+        </div>
+        <div class="stats__highlight" style="--delay:0.40s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <span>Check-in flessibile</span>
+          <small>16:00 – 21:00</small>
+        </div>
+      </div>
+
+      <!-- Tutti i servizi in collapse per categoria -->
+      <div class="stats__services" data-animate="fade-up">
+
+        <details class="stats__cat">
+          <summary class="stats__cat-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>Cucina</span>
+            <svg class="stats__cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <ul class="stats__cat-list">
+            <li>Cucina completamente attrezzata</li>
+            <li>Piano cottura &amp; forno</li>
+            <li>Forno a microonde</li>
+            <li>Lavastoviglie</li>
+            <li>Frigorifero &amp; congelatore</li>
+            <li>Macchina da caffè &amp; tostapane</li>
+            <li>Bollitore elettrico</li>
+            <li>Utensili e prodotti per le pulizie</li>
+            <li>Seggiolone &amp; tavolo da pranzo</li>
+          </ul>
+        </details>
+
+        <details class="stats__cat">
+          <summary class="stats__cat-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span>Comfort &amp; Clima</span>
+            <svg class="stats__cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <ul class="stats__cat-list">
+            <li>Aria condizionata in ogni stanza</li>
+            <li>Riscaldamento autonomo</li>
+            <li>Biancheria da letto inclusa</li>
+            <li>Asciugamani inclusi</li>
+            <li>Divano &amp; zona soggiorno</li>
+            <li>Scrivania</li>
+            <li>Armadio &amp; cabina armadio</li>
+            <li>Pavimento in marmo</li>
+            <li>Ingresso indipendente</li>
+          </ul>
+        </details>
+
+        <details class="stats__cat">
+          <summary class="stats__cat-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+            <span>Bagno</span>
+            <svg class="stats__cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <ul class="stats__cat-list">
+            <li>Bagno privato</li>
+            <li>Doccia</li>
+            <li>Bidet</li>
+            <li>Asciugacapelli</li>
+            <li>Prodotti da bagno in omaggio</li>
+            <li>Carta igienica inclusa</li>
+          </ul>
+        </details>
+
+        <details class="stats__cat">
+          <summary class="stats__cat-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <span>Media &amp; Intrattenimento</span>
+            <svg class="stats__cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <ul class="stats__cat-list">
+            <li>Monitor a schermo piatto</li>
+            <li>WiFi gratuito 239 Mbps</li>
+            <li>Adatto streaming 4K e videochiamate</li>
+            <li>Libri e intrattenimento per bambini</li>
+          </ul>
+        </details>
+
+        <details class="stats__cat">
+          <summary class="stats__cat-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            <span>Lavanderia</span>
+            <svg class="stats__cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <ul class="stats__cat-list">
+            <li>Lavatrice (su richiesta)</li>
+            <li>Asciugatrice (su richiesta)</li>
+            <li>Ferro &amp; asse da stiro</li>
+            <li>Stirapantaloni</li>
+            <li>Stendibiancheria</li>
+          </ul>
+        </details>
+
+        <details class="stats__cat">
+          <summary class="stats__cat-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Sicurezza &amp; Accesso</span>
+            <svg class="stats__cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <ul class="stats__cat-list">
+            <li>Cassaforte in camera</li>
+            <li>Accesso con chiavi</li>
+            <li>Allarme antifumo &amp; antincendio</li>
+            <li>Rilevatore di monossido di carbonio</li>
+            <li>Telecamere esterne</li>
+            <li>Struttura interamente non fumatori</li>
+            <li>Piano terra — accessibile</li>
+            <li>Parcheggio in strada (gratuito)</li>
+          </ul>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       4. BITONTO TI ASPETTA — mappa + card luoghi
+  ═══════════════════════════════════════════════════ -->
+  <section id="bitonto" class="bitonto" aria-label="Scopri Bitonto">
+    <div class="bitonto__inner">
+      <p class="bitonto__eyebrow">Dove siamo</p>
+      <h2 class="bitonto__title" data-animate="fade-up">Bitonto ti aspetta</h2>
+      <p class="bitonto__intro" data-animate="fade-up">A 300 m dalla città vecchia e dalla celebre Concattedrale romanica del XII secolo, a 9 km dall'aeroporto di Bari. Storia e vita quotidiana tra vicoli di pietra e profumi di Puglia.</p>
+
+      <!-- MAPPA LEAFLET -->
+      <div id="bitonto-map" class="bitonto__leaflet" data-animate="fade-up" aria-label="Mappa interattiva della Puglia con distanze da Bitonto"></div>
+
+      <!-- PANNELLO TAB (sotto la mappa) -->
+      <div class="bitonto__panel" data-animate="fade-up">
+        <div class="bitonto__tabs" role="tablist" aria-label="Esplora il territorio">
+          <button class="bitonto__tab bitonto__tab--active" data-tab="gargano" role="tab" aria-selected="true">Gargano e Daunia</button>
+          <button class="bitonto__tab" data-tab="alta-murgia" role="tab" aria-selected="false">Alta Murgia</button>
+          <button class="bitonto__tab" data-tab="terra-bari" role="tab" aria-selected="false">Terra di Bari</button>
+          <button class="bitonto__tab" data-tab="costa-sud" role="tab" aria-selected="false">Costa Adriatica Sud</button>
+          <button class="bitonto__tab" data-tab="valle-itria" role="tab" aria-selected="false">Valle d'Itria</button>
+          <button class="bitonto__tab" data-tab="arco-ionico" role="tab" aria-selected="false">Arco Ionico</button>
+          <button class="bitonto__tab" data-tab="salento" role="tab" aria-selected="false">Salento</button>
+          <button class="bitonto__tab" data-tab="matera" role="tab" aria-selected="false">Matera (Basilicata)</button>
+        </div>
+
+        <!-- TAB: GARGANO E DAUNIA -->
+        <div class="bitonto__tab-content bitonto__tab-content--active" data-panel="gargano">
+        </div>
+
+        <!-- TAB: ALTA MURGIA -->
+        <div class="bitonto__tab-content" data-panel="alta-murgia">
+        </div>
+
+        <!-- TAB: TERRA DI BARI -->
+        <div class="bitonto__tab-content" data-panel="terra-bari">
+        </div>
+
+        <!-- TAB: COSTA ADRIATICA SUD -->
+        <div class="bitonto__tab-content" data-panel="costa-sud">
+        </div>
+
+        <!-- TAB: VALLE D'ITRIA -->
+        <div class="bitonto__tab-content" data-panel="valle-itria">
+        </div>
+
+        <!-- TAB: ARCO IONICO -->
+        <div class="bitonto__tab-content" data-panel="arco-ionico">
+        </div>
+
+        <!-- TAB: SALENTO -->
+        <div class="bitonto__tab-content" data-panel="salento">
+        </div>
+
+        <!-- TAB: MATERA (BASILICATA) -->
+        <div class="bitonto__tab-content" data-panel="matera">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       5. RECENSIONI — spotlight effect
+  ═══════════════════════════════════════════════════ -->
+  <section id="reviews" class="reviews" aria-label="Recensioni degli ospiti">
+    <div class="reviews__inner">
+      <p class="reviews__eyebrow">Cosa dicono</p>
+      <!-- reviews animated via JS -->
+
+      <div class="reviews__stage" id="reviews-stage" data-animate="fade-up">
+        <div class="reviews__spotlight" id="reviews-spotlight" aria-hidden="true"></div>
+
+        <div class="reviews__slides" id="reviews-slides" role="list">
+
+          <blockquote class="reviews__slide reviews__slide--active" role="listitem">
+            <div class="reviews__stars" aria-label="5 stelle su 5">★★★★★</div>
+            <p class="reviews__text">"Ci siamo sentiti a casa fin dal primo momento. L'appartamento è curato nei minimi dettagli, il centro storico è a due passi e il silenzio di quelle strade di notte è qualcosa di magico."</p>
+            <footer class="reviews__author">
+              <span class="reviews__name">Giulia & Marco</span>
+              <span class="reviews__origin">Milano</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="reviews__slide" role="listitem">
+            <div class="reviews__stars" aria-label="5 stelle su 5">★★★★★</div>
+            <p class="reviews__text">"Un posto raro. Non l'ennesimo affitto turistico asettico, ma un luogo con un'anima. I pavimenti in cotto, la luce del pomeriggio, il profumo di pietra antica. Torneremo sicuramente."</p>
+            <footer class="reviews__author">
+              <span class="reviews__name">Thomas & Elise</span>
+              <span class="reviews__origin">Parigi</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="reviews__slide" role="listitem">
+            <div class="reviews__stars" aria-label="5 stelle su 5">★★★★★</div>
+            <p class="reviews__text">"La Puglia è bellissima, ma questo appartamento ha reso il viaggio davvero speciale. Pulizia impeccabile, comunicazione velocissima, e quei dettagli che fanno la differenza."</p>
+            <footer class="reviews__author">
+              <span class="reviews__name">Sara</span>
+              <span class="reviews__origin">Roma</span>
+            </footer>
+          </blockquote>
+
+        </div>
+
+        <div class="reviews__nav" role="group" aria-label="Navigazione recensioni" data-animate="fade-up">
+          <button class="reviews__btn" id="review-prev" aria-label="Recensione precedente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="reviews__dots" id="reviews-dots">
+            <span class="reviews__dot reviews__dot--active" data-index="0" role="button" aria-label="Recensione 1"></span>
+            <span class="reviews__dot" data-index="1" role="button" aria-label="Recensione 2"></span>
+            <span class="reviews__dot" data-index="2" role="button" aria-label="Recensione 3"></span>
+          </div>
+          <button class="reviews__btn" id="review-next" aria-label="Recensione successiva">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       7. DA SAPERE — informazioni pratiche
+  ═══════════════════════════════════════════════════ -->
+  <section id="info" class="info" aria-label="Informazioni pratiche">
+    <div class="info__inner">
+      <p class="info__eyebrow">Informazioni Pratiche</p>
+      <h2 class="info__title" data-animate="fade-up">Da sapere prima di arrivare</h2>
+
+      <div class="info__grid">
+
+        <div class="info__card" data-animate="fade-up" style="--delay:.05s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <h3>Arrivo</h3>
+          <p>Dalle <strong>16:00</strong> alle <strong>20:00</strong></p>
+          <p>Comunicare in anticipo l'orario di arrivo. Al check-in è richiesto documento con foto e carta di credito.</p>
+        </div>
+
+        <div class="info__card" data-animate="fade-up" style="--delay:.1s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <h3>Partenza</h3>
+          <p>Entro le <strong>10:00</strong>.</p>
+          <p>Siamo flessibili sugli orari, ma ti chiediamo di comunicarcelo in anticipo.</p>
+        </div>
+
+        <div class="info__card" data-animate="fade-up" style="--delay:.15s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h3>Check-in Online</h3>
+          <p>Completa il check-in prima di arrivare e risparmia tempo all'arrivo.</p>
+        </div>
+
+        <div class="info__card" data-animate="fade-up" style="--delay:.2s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <h3>Accesso</h3>
+          <p>Situato in un piccolo condominio al piano rialzato. Check-in in presenza.</p>
+        </div>
+
+        <div class="info__card" data-animate="fade-up" style="--delay:.25s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+          <h3>Documenti</h3>
+          <p>Al check-in è richiesto un documento d'identità valido per tutti gli ospiti.</p>
+        </div>
+
+        <div class="info__card" data-animate="fade-up" style="--delay:.3s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="17" y1="8" x2="23" y2="14"/><line x1="23" y1="8" x2="17" y2="14"/></svg>
+          <h3>Visitatori</h3>
+          <p>Non è consentito ospitare persone non registrate in struttura.</p>
+        </div>
+
+        <div class="info__card" data-animate="fade-up" style="--delay:.35s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 14l-4-4 4-4"/><path d="M5 10h11a4 4 0 0 1 0 8h-1"/></svg>
+          <h3>Cancellazione</h3>
+          <p>Le condizioni variano a seconda della tipologia di alloggio. Verifica prima di selezionare un'opzione.</p>
+        </div>
+
+        <div class="info__card" data-animate="fade-up" style="--delay:.4s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <h3>Bambini</h3>
+          <p>Bambini di tutte le età benvenuti. Da 9 anni pagano come adulti. Culla su richiesta <strong>€5/notte</strong>.</p>
+        </div>
+
+        <div class="info__card" data-animate="fade-up" style="--delay:.45s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+          <h3>Pagamento</h3>
+          <p>Visa · Mastercard · PayPal · Contanti</p>
+        </div>
+
+        <div class="info__card" data-animate="fade-up" style="--delay:.5s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="2" y1="2" x2="22" y2="22"/><path d="M12 12c-2-2-2-5 0-7"/><path d="M18 6c2 2 2 5 0 7"/><path d="M8 16c-1.5 1.5-2 3.5-2 5h12c0-1.5-.5-3.5-2-5"/></svg>
+          <h3>Fumatori</h3>
+          <p>Fumare non è consentito in tutta la struttura.</p>
+        </div>
+
+        <div class="info__card" data-animate="fade-up" style="--delay:.55s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M12 12h.01"/></svg>
+          <h3>Feste</h3>
+          <p>Non è permesso organizzare feste o eventi in struttura.</p>
+        </div>
+
+        <div class="info__card" data-animate="fade-up" style="--delay:.6s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          <h3>Silenzio notturno</h3>
+          <p>Rispettare il silenzio dalle <strong>23:00</strong> alle <strong>08:00</strong>.</p>
+        </div>
+
+        <div class="info__card" data-animate="fade-up" style="--delay:.65s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 5.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z"/><path d="M17 5.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z"/><path d="M6 5.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z"/><path d="M21 5.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z"/><path d="M5 10c0-1 .5-2 2-2h10c1.5 0 2 1 2 2l1 5c.2 1-.3 2-1.5 2H5.5C4.3 17 3.8 16 4 15l1-5z"/><path d="M9 17v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2"/><path d="M15 17v2a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-2"/></svg>
+          <h3>Animali</h3>
+          <p>Animali non ammessi.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       8. PARLACI — contatti full-width
+  ═══════════════════════════════════════════════════ -->
+  <section id="contact" class="contact" aria-label="Contattaci">
+    <div class="contact__inner">
+      <p class="contact__eyebrow">Scrivici</p>
+      <h2 class="contact__title" data-animate="fade-up">Parlaci</h2>
+      <p class="contact__intro" data-animate="fade-up">Ogni soggiorno inizia con una conversazione. Siamo qui.</p>
+
+      <div class="contact__grid" data-animate="fade-up">
+        <form class="contact__form" id="contact-form" novalidate aria-label="Form di contatto">
+          <div class="contact__field">
+            <label class="contact__label" for="field-name">Nome</label>
+            <input class="contact__input" type="text" id="field-name" name="name" placeholder="Il tuo nome" autocomplete="given-name" required />
+          </div>
+          <div class="contact__field">
+            <label class="contact__label" for="field-email">Email</label>
+            <input class="contact__input" type="email" id="field-email" name="email" placeholder="tua@email.it" autocomplete="email" required />
+          </div>
+          <div class="contact__field">
+            <label class="contact__label" for="field-dates">Date di soggiorno</label>
+            <input class="contact__input" type="text" id="field-dates" name="dates" placeholder="es. 10–17 luglio 2026" />
+          </div>
+          <div class="contact__field contact__field--full">
+            <label class="contact__label" for="field-msg">Messaggio</label>
+            <textarea class="contact__input contact__textarea" id="field-msg" name="message" placeholder="Dimmi qualcosa di te..." rows="4"></textarea>
+          </div>
+          <button type="submit" class="contact__submit">Invia messaggio</button>
+          <p class="contact__form-note" id="form-note" aria-live="polite"></p>
+        </form>
+
+        <div class="contact__aside">
+          <a
+            href="https://wa.me/3715183225?text=Ciao!%20Vorrei%20informazioni%20sull'appartamento%20Le%20Popolari"
+            class="contact__wa"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Contattaci su WhatsApp"
+          >
+            <svg class="contact__wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span>Scrivici su WhatsApp</span>
+          </a>
+
+          <div class="contact__info">
+            <div class="contact__info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Via Ammiraglio Vacca 35, 70032 Bitonto (BA)</span>
+            </div>
+            <div class="contact__info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+37 151 832 25</span>
+            </div>
+            <div class="contact__info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:info.lepopolari@gmail.com" style="color:inherit">info.lepopolari@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact__map">
+            <iframe
+              title="Mappa Le Popolari - Bitonto"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3015.7!2d16.6742!3d41.1089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1347e7b1!2sBitonto%2C+BA!5e0!3m2!1sit!2sit!4v1"
+              width="100%"
+              height="220"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       8. FOOTER — minimal nero
+  ═══════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <a href="#hero" class="footer__logo" aria-label="Torna in cima">Le Popolari</a>
+      <div class="footer__social" aria-label="Social media e contatti">
+        <a href="https://www.instagram.com/lepopolari_apt/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/info.lepopolari/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="mailto:info.lepopolari@gmail.com" class="footer__social-link" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+        </a>
+        <a href="https://wa.me/3715183225" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a href="https://lepopolari.kross.travel/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Prenota">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 4v16h20V4H2z"/><path d="M2 8h20"/><path d="M7 12h2v4H7z"/><path d="M15 12h2v4h-2z"/></svg>
+        </a>
+      </div>
+      <hr class="footer__divider" aria-hidden="true">
+      <div class="footer__info">
+        <p class="footer__copy">&copy; 2026 <strong>Le Popolari</strong> · <strong>Via Ammiraglio Vacca 35</strong> · 70032 Bitonto (BA) · <a href="mailto:info.lepopolari@gmail.com" class="footer__link"><strong>info.lepopolari@gmail.com</strong></a> · <a href="tel:+393715183225" class="footer__link"><strong>+39 371 518 3225</strong></a></p>
+        <p class="footer__copy">CIS: <strong>BA07201191000042472</strong> · CIN: <strong>IT072011C200085855</strong> · <a href="#" class="footer__link">Privacy Policy</a> · <a href="#" class="footer__link">Cookie Policy</a> · <a href="#" class="footer__link">Condizioni di Utilizzo</a></p>
+        <p class="footer__credit">Sito realizzato da <a href="https://beroot.studio" target="_blank" rel="noopener noreferrer" class="footer__link footer__link--accent"><strong>Beroot Studio</strong></a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════
+       FLOATING BUTTONS
+  ═══════════════════════════════════════════════════ -->
+  <a
+    href="https://wa.me/3715183225?text=Ciao!%20Vorrei%20informazioni%20sull'appartamento%20Le%20Popolari"
+    class="fab fab--wa"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contattaci su WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <button class="fab fab--top" id="back-to-top" aria-label="Torna in cima">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script src="leaflet.js"></script>
+  <script>
+  (function initBitontoSection() {
+
+    /* ── MAPPA ─────────────────────────────────────────── */
+    var map = L.map('bitonto-map', {
+      center: [41.05, 16.70],
+      zoom: 8,
+      zoomControl: true,
+      scrollWheelZoom: true,
+      attributionControl: true
+    });
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 17
+    }).addTo(map);
+
+    /* (poligoni aree rimossi) */
+
+    function svgIcon(emoji, bg) {
+      return L.divIcon({
+        className: '',
+        html: '<div style="width:32px;height:32px;border-radius:50%;background:' + bg + ';display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 2px 8px rgba(0,0,0,0.25);border:2px solid #fff;">' + emoji + '</div>',
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
+        popupAnchor: [0, -18]
+      });
+    }
+
+    var iconBitonto = L.divIcon({
+      className: '',
+      html: '<div style="width:36px;height:36px;border-radius:50%;background:#4A3728;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 3px 12px rgba(74,55,40,0.5);border:3px solid #C17F5A;">🏠</div>',
+      iconSize: [36, 36],
+      iconAnchor: [18, 18],
+      popupAnchor: [0, -20]
+    });
+
+    var allMarkers = [];
+
+    var destinations = [
+      { id: 'bari',          lat: 41.1171, lng: 16.8719, emoji: '🏛️', bg: '#4A8FBB', tab: 'attrazioni', label: 'Bari',             dist: '15 km · 20\'' },
+      { id: 'castel-del-monte', lat: 41.0847, lng: 16.2706, emoji: '🏰', bg: '#C17F5A', tab: 'attrazioni', label: 'Castel del Monte', dist: '35 km · 35\'' },
+      { id: 'alberobello',   lat: 40.7843, lng: 17.2373, emoji: '🍄', bg: '#8A9A4A', tab: 'attrazioni', label: 'Alberobello',      dist: '65 km · 1h' },
+      { id: 'matera',        lat: 40.6636, lng: 16.6044, emoji: '🪨', bg: '#9B6B4A', tab: 'attrazioni', label: 'Matera',            dist: '65 km · 1h' },
+      { id: 'polignano',     lat: 40.9981, lng: 17.2183, emoji: '🌊', bg: '#4A8FBB', tab: 'attrazioni', label: 'Polignano a Mare', dist: '55 km · 50\'' },
+      { id: 'locorotondo',   lat: 40.7508, lng: 17.3261, emoji: '⬡',  bg: '#8A9A4A', tab: 'attrazioni', label: 'Locorotondo',      dist: '70 km · 1h10\'' },
+      { id: 'gargano',       lat: 41.8800, lng: 15.9075, emoji: '🌲', bg: '#7A6A4A', tab: 'attrazioni', label: 'Gargano',           dist: '130 km · 1h45\'' },
+      { id: 'giovinazzo',    lat: 41.1878, lng: 16.6717, emoji: '⛵', bg: '#4A8FBB', tab: 'dintorni',   label: 'Giovinazzo',        dist: '8 km · 10\'' },
+      { id: 'santo-spirito', lat: 41.1500, lng: 16.7800, emoji: '🏖️', bg: '#4A8FBB', tab: 'dintorni',   label: 'Santo Spirito',    dist: '12 km · 15\'' },
+      { id: 'altamura',      lat: 40.8268, lng: 16.5539, emoji: '🍞', bg: '#C17F5A', tab: 'dintorni',   label: 'Altamura',          dist: '35 km · 40\'' },
+      { id: 'gravina',       lat: 40.8197, lng: 16.4217, emoji: '🦅', bg: '#C17F5A', tab: 'dintorni',   label: 'Gravina di Puglia', dist: '50 km · 55\'' },
+      { id: 'monopoli',      lat: 40.9521, lng: 17.3001, emoji: '⚓', bg: '#4A8FBB', tab: 'dintorni',   label: 'Monopoli',          dist: '50 km · 45\'' },
+      { id: 'petruzzelli',   lat: 41.1253, lng: 16.8710, emoji: '🎭', bg: '#9B5A7A', tab: 'attrazioni', label: 'Teatro Petruzzelli', dist: '19 km · 25\'' },
+      { id: 'san-nicola',    lat: 41.1286, lng: 16.8712, emoji: '⛪', bg: '#7A6A4A', tab: 'attrazioni', label: 'Basilica di San Nicola', dist: '20 km · 25\'' },
+      { id: 'aeroporto',     lat: 41.1392, lng: 16.7607, emoji: '✈️', bg: '#7A9F5A', tab: 'arrivare',   label: 'Aeroporto Bari',    dist: '9 km · 10\'' },
+      { id: 'treno',         lat: 41.1145, lng: 16.6900, emoji: '🚆', bg: '#5A7A9A', tab: 'arrivare',   label: 'Ferrotramviaria',   dist: 'Linea diretta' },
+      { id: 'stazione-bari', lat: 41.1178, lng: 16.8714, emoji: '🚉', bg: '#5A7A9A', tab: 'arrivare',   label: 'Stazione Bari Centrale', dist: '24 km · 30\'' },
+      { id: 'porto-bari',    lat: 41.1330, lng: 16.8650, emoji: '🚢', bg: '#4A8FBB', tab: 'arrivare',   label: 'Porto di Bari',     dist: '21 km · 25\'' }
+    ];
+
+    L.marker([41.1089, 16.6742], { icon: iconBitonto }).addTo(map)
+      .bindPopup('<b style="font-family:Georgia,serif;color:#4A3728">Bitonto</b><br><small style="color:#C17F5A">Sei qui · Via Ammiraglio Vacca 35</small>');
+
+    destinations.forEach(function(d) {
+      var m = L.marker([d.lat, d.lng], { icon: svgIcon(d.emoji, d.bg) })
+        .bindPopup('<b style="font-family:Georgia,serif;color:#4A3728">' + d.label + '</b><br><small style="color:#777">' + d.dist + ' da Bitonto</small>');
+      m._destId  = d.id;
+      m._destTab = d.tab;
+      allMarkers.push(m);
+      m.addTo(map);
+    });
+
+    function filterMarkers(tab) {
+      allMarkers.forEach(function(m) {
+        if (!map.hasLayer(m)) map.addLayer(m);
+      });
+    }
+
+    /* ── TAB ───────────────────────────────────────────── */
+    var tabs    = document.querySelectorAll('.bitonto__tab');
+    var panels  = document.querySelectorAll('.bitonto__tab-content');
+
+    tabs.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var target = btn.dataset.tab;
+        tabs.forEach(function(b) { b.classList.remove('bitonto__tab--active'); b.setAttribute('aria-selected','false'); });
+        panels.forEach(function(p) { p.classList.remove('bitonto__tab-content--active'); });
+        btn.classList.add('bitonto__tab--active');
+        btn.setAttribute('aria-selected','true');
+        document.querySelector('[data-panel="' + target + '"]').classList.add('bitonto__tab-content--active');
+        filterMarkers(target);
+      });
+    });
+
+    /* ── ACCORDION CARD ────────────────────────────────── */
+    document.querySelectorAll('.bitonto__card').forEach(function(card) {
+      card.querySelector('.bitonto__card-head').addEventListener('click', function() {
+        var isOpen = card.classList.contains('bitonto__card--open');
+        document.querySelectorAll('.bitonto__card--open').forEach(function(c) { c.classList.remove('bitonto__card--open'); });
+        if (!isOpen) {
+          card.classList.add('bitonto__card--open');
+          var dest = card.dataset.dest;
+          var m = allMarkers.find(function(x) { return x._destId === dest; });
+          if (m) { map.setView(m.getLatLng(), 10, { animate: true }); m.openPopup(); }
+        }
+      });
+    });
+
+  })();
+  </script>
+  <script>
+  (function initBooking() {
+    var MONTHS = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno',
+                  'Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+    var DAYS   = ['Lu','Ma','Me','Gi','Ve','Sa','Do'];
+
+    var bbCheckIn  = null;
+    var bbCheckOut = null;
+    var bbGuests   = 2;
+    var calOffset  = 0;
+    var selecting  = 'in';
+
+    var calOverlay    = document.getElementById('calOverlay');
+    var calPanel      = document.getElementById('calPanel');
+    var calTitles     = document.getElementById('calTitles');
+    var calPanelGrids = document.getElementById('calPanelGrids');
+    var calNights     = document.getElementById('calNights');
+    var calPrev       = document.getElementById('calPrev');
+    var calNext       = document.getElementById('calNext');
+    var calConfirm    = document.getElementById('calConfirm');
+    var dispFrom  = document.getElementById('bk-display-from');
+    var dispTo    = document.getElementById('bk-display-to');
+    var hidFrom   = document.getElementById('booking-from');
+    var hidTo     = document.getElementById('booking-to');
+    var hidGuests = document.getElementById('booking-guests');
+    var guestsVal = document.getElementById('bk-guests-val');
+    var fieldFrom = document.getElementById('bk-field-from');
+    var fieldTo   = document.getElementById('bk-field-to');
+    var form      = document.getElementById('booking-form');
+
+    function toYMD(d) {
+      return d.getFullYear() + '-' +
+        String(d.getMonth()+1).padStart(2,'0') + '-' +
+        String(d.getDate()).padStart(2,'0');
+    }
+    function parseYMD(s) {
+      var p = s.split('-').map(Number);
+      return new Date(p[0], p[1]-1, p[2]);
+    }
+    function fmtDate(ymd) {
+      var d = parseYMD(ymd);
+      return d.getDate() + ' ' + MONTHS[d.getMonth()].slice(0,3) + ' ' + d.getFullYear();
+    }
+
+    function buildGrid(base) {
+      var today = new Date(); today.setHours(0,0,0,0);
+      var grid = document.createElement('div');
+      grid.className = 'cal-grid';
+      DAYS.forEach(function(d) {
+        var el = document.createElement('div');
+        el.className = 'cal-dow'; el.textContent = d; grid.appendChild(el);
+      });
+      var firstDay = (base.getDay() + 6) % 7;
+      for (var i = 0; i < firstDay; i++) {
+        var sp = document.createElement('div');
+        sp.className = 'cal-day cal-day-empty'; grid.appendChild(sp);
+      }
+      var daysInMonth = new Date(base.getFullYear(), base.getMonth()+1, 0).getDate();
+      for (var d = 1; d <= daysInMonth; d++) {
+        var date = new Date(base.getFullYear(), base.getMonth(), d);
+        var ymd  = toYMD(date);
+        var el   = document.createElement('div');
+        el.className = 'cal-day';
+        el.textContent = d;
+        el.dataset.ymd = ymd;
+        if (date < today) {
+          el.classList.add('cal-day-disabled');
+        } else {
+          el.addEventListener('click', (function(y){ return function(){ onDayClick(y); }; })(ymd));
+          el.addEventListener('mouseenter', (function(y){ return function(){ onDayHover(y); }; })(ymd));
+        }
+        grid.appendChild(el);
+      }
+      return grid;
+    }
+
+    function applyRangeClasses(hoverYmd) {
+      var endYmd = bbCheckOut || hoverYmd || null;
+      calPanelGrids.querySelectorAll('.cal-day[data-ymd]').forEach(function(el) {
+        var ymd  = el.dataset.ymd;
+        var date = parseYMD(ymd);
+        el.classList.remove('cal-day-start','cal-day-end','cal-day-in-range');
+        if (ymd === bbCheckIn) el.classList.add('cal-day-start');
+        if (endYmd && ymd === endYmd && ymd !== bbCheckIn) el.classList.add('cal-day-end');
+        if (bbCheckIn && endYmd && date > parseYMD(bbCheckIn) && date < parseYMD(endYmd)) el.classList.add('cal-day-in-range');
+      });
+      updateNights(hoverYmd);
+    }
+
+    function renderCalendar() {
+      var today = new Date(); today.setHours(0,0,0,0);
+      var base0 = new Date(today.getFullYear(), today.getMonth() + calOffset, 1);
+      var base1 = new Date(today.getFullYear(), today.getMonth() + calOffset + 1, 1);
+      calTitles.innerHTML =
+        '<div class="cal-month-title">' + MONTHS[base0.getMonth()] + ' ' + base0.getFullYear() + '</div>' +
+        '<div class="cal-month-title">' + MONTHS[base1.getMonth()] + ' ' + base1.getFullYear() + '</div>';
+      calPanelGrids.innerHTML = '';
+      calPanelGrids.appendChild(buildGrid(base0));
+      calPanelGrids.appendChild(buildGrid(base1));
+      calPrev.disabled = calOffset <= 0;
+      applyRangeClasses();
+    }
+
+    function onDayClick(ymd) {
+      if (selecting === 'in' || (bbCheckIn && ymd <= bbCheckIn)) {
+        bbCheckIn = ymd; bbCheckOut = null; selecting = 'out';
+        applyRangeClasses();
+        updateDateFields();
+      } else {
+        bbCheckOut = ymd; selecting = 'in';
+        applyRangeClasses();
+        updateDateFields();
+        closeCal();
+      }
+    }
+
+    function onDayHover(ymd) {
+      if (selecting !== 'out' || !bbCheckIn || ymd <= bbCheckIn) return;
+      applyRangeClasses(ymd);
+    }
+
+    function updateNights(hoverYmd) {
+      var end = bbCheckOut || hoverYmd;
+      if (bbCheckIn && end && end > bbCheckIn) {
+        var diff = (parseYMD(end) - parseYMD(bbCheckIn)) / 86400000;
+        calNights.textContent = diff + (diff === 1 ? ' notte' : ' notti');
+      } else {
+        calNights.textContent = (selecting === 'out' && bbCheckIn) ? 'Seleziona partenza' : '';
+      }
+    }
+
+    function updateDateFields() {
+      dispFrom.textContent = bbCheckIn  ? fmtDate(bbCheckIn)  : 'Aggiungi data';
+      dispTo.textContent   = bbCheckOut ? fmtDate(bbCheckOut) : 'Aggiungi data';
+      dispFrom.classList.toggle('hero__booking-display--set', !!bbCheckIn);
+      dispTo.classList.toggle('hero__booking-display--set', !!bbCheckOut);
+      if (hidFrom) hidFrom.value = bbCheckIn  || '';
+      if (hidTo)   hidTo.value   = bbCheckOut || '';
+      fieldFrom.classList.toggle('hero__booking-field--active', !!bbCheckIn);
+      fieldTo.classList.toggle('hero__booking-field--active', !!bbCheckOut);
+    }
+
+    function openCal() {
+      calOverlay.classList.add('open');
+      renderCalendar();
+    }
+    function closeCal() {
+      calOverlay.classList.remove('open');
+    }
+
+    fieldFrom.addEventListener('click', function() { selecting = 'in'; openCal(); });
+    fieldTo.addEventListener('click',   function() { selecting = bbCheckIn ? 'out' : 'in'; openCal(); });
+    fieldFrom.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' ') openCal(); });
+    fieldTo.addEventListener('keydown',   function(e){ if(e.key==='Enter'||e.key===' ') openCal(); });
+
+    calPrev.addEventListener('click', function() { if (calOffset > 0) { calOffset--; renderCalendar(); } });
+    calNext.addEventListener('click', function() { calOffset++; renderCalendar(); });
+    calConfirm.addEventListener('click', function() { closeCal(); updateDateFields(); });
+
+    document.getElementById('calBackdrop').addEventListener('click', closeCal);
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeCal(); });
+
+    /* Stepper ospiti */
+    var guests = 2;
+    document.getElementById('bk-guests-minus').addEventListener('click', function() {
+      if (guests > 1) { guests--; guestsVal.textContent = guests; if(hidGuests) hidGuests.value = guests; }
+    });
+    document.getElementById('bk-guests-plus').addEventListener('click', function() {
+      if (guests < 8) { guests++; guestsVal.textContent = guests; if(hidGuests) hidGuests.value = guests; }
+    });
+
+    /* Submit */
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!bbCheckIn || !bbCheckOut) { selecting = 'in'; openCal(); return; }
+      var g = guests;
+      var url = 'https://lepopolari.kross.travel/book/step1' +
+        '?adults=' + g + '&children=0&rooms=1&guests=' + g + '&n_guests=' + g +
+        '&guests_rooms=' + g + ',0;&kross_lang=it' +
+        '&from=' + bbCheckIn + '&to=' + bbCheckOut;
+      window.open(url, '_blank', 'noopener');
+    });
+
+  })();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

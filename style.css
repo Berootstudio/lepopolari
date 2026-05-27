@@ -1852,6 +1852,9 @@ iframe { display: block; }
 
   /* Booking bar hero */
   .hero__booking { flex-direction: column; }
+  .hero__booking-field { text-align: center; align-items: center; }
+  .hero__booking-label { justify-content: center; }
+  .hero__booking-display { text-align: center; }
   .hero__booking-divider { width: auto; height: 1px; margin: 0 0.75rem; }
   .hero__booking-cta { padding: 1rem 2rem; justify-content: center; border-radius: 0 0 12px 12px; }
   /* Calendario: 1 mese su mobile */

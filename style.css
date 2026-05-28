@@ -196,7 +196,7 @@ iframe { display: block; }
   margin-top: 0.5rem;
 }
 .preloader__bar-wrap {
-  margin-top: 2.5rem;
+  margin: 2.5rem auto 0;
   width: 220px;
   height: 2px;
   background: rgba(255,255,255,0.12);

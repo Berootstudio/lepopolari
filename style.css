@@ -274,10 +274,11 @@ iframe { display: block; }
   justify-content: space-between;
   padding: 1.25rem clamp(1.5rem, 5vw, 3rem);
   transform: translateY(-100%);
-  transition: transform 0.6s var(--ease-cinema), background 0.4s;
+  transition: transform 0.6s var(--ease-cinema), background 0.4s, top 0.4s var(--ease-cinema);
   background: transparent;
 }
 .navbar.visible { transform: translateY(0); }
+.navbar.no-topbar { top: 0; }
 .navbar.scrolled { background: rgba(13,13,13,0.88); backdrop-filter: blur(12px); }
 .navbar.navbar--hidden { transform: translateY(-100%); }
 

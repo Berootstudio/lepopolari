@@ -151,9 +151,11 @@ function map(val, inMin, inMax, outMin, outMax) {
       navbar.classList.add('scrolled');
     }
 
-    // Nascondi top bar dopo la hero
+    // Nascondi top bar dopo la hero, navbar sale
     if (topbar) {
-      topbar.classList.toggle('hidden', y > heroH - 100);
+      const hideTopbar = y > heroH - 100;
+      topbar.classList.toggle('hidden', hideTopbar);
+      navbar.classList.toggle('no-topbar', hideTopbar);
     }
 
     lastScrollY = y;

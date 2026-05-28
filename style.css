@@ -250,6 +250,12 @@ iframe { display: block; }
   border-color: var(--legno);
   color: var(--terra);
 }
+.top-bar.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.4s var(--ease-cinema), opacity 0.3s;
+}
+
 @media (max-width: 768px) {
   .top-bar { gap: 0.5rem; padding: 0.4rem 0.75rem; }
   .top-bar__text { font-size: 0.75rem; }

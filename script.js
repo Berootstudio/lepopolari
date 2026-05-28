@@ -130,6 +130,7 @@ function map(val, inMin, inMax, outMin, outMax) {
 ════════════════════════════════════════════════════ */
 (function initNavbar() {
   const navbar = $('#navbar');
+  const topbar = document.querySelector('.top-bar');
   const burger = $('#navbar-burger');
   const links  = $('#navbar-links');
   if (!navbar) return;
@@ -139,7 +140,7 @@ function map(val, inMin, inMax, outMin, outMax) {
 
   function updateNavbar() {
     const y = window.scrollY;
-    const rooms = document.getElementById('rooms');
+    const heroH = document.getElementById('hero')?.offsetHeight || 600;
 
     if (y > 80) {
       navbar.classList.add('visible');
@@ -150,6 +151,10 @@ function map(val, inMin, inMax, outMin, outMax) {
       navbar.classList.add('scrolled');
     }
 
+    // Nascondi top bar dopo la hero
+    if (topbar) {
+      topbar.classList.toggle('hidden', y > heroH - 100);
+    }
 
     lastScrollY = y;
     ticking = false;

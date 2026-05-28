@@ -129,10 +129,10 @@ function map(val, inMin, inMax, outMin, outMax) {
    3. NAVBAR — appare dopo il primo scroll
 ════════════════════════════════════════════════════ */
 (function initNavbar() {
-  const navbar = $('#navbar');
+  const navbar = document.getElementById('navbar');
   const topbar = document.querySelector('.top-bar');
-  const burger = $('#navbar-burger');
-  const links  = $('#navbar-links');
+  const burger = document.getElementById('navbar-burger');
+  const links  = document.getElementById('navbar-links');
   if (!navbar) return;
 
   let lastScrollY = 0;
@@ -140,7 +140,8 @@ function map(val, inMin, inMax, outMin, outMax) {
 
   function updateNavbar() {
     const y = window.scrollY;
-    const heroH = document.getElementById('hero')?.offsetHeight || 600;
+    const hero = document.getElementById('hero');
+    const heroH = hero ? hero.offsetHeight : 600;
 
     if (y > 80) {
       navbar.classList.add('visible');
@@ -153,9 +154,14 @@ function map(val, inMin, inMax, outMin, outMax) {
 
     // Nascondi top bar dopo la hero, navbar sale
     if (topbar) {
-      const hideTopbar = y > heroH - 100;
-      topbar.classList.toggle('hidden', hideTopbar);
-      navbar.classList.toggle('no-topbar', hideTopbar);
+      const hideTopbar = y > (heroH - 100);
+      if (hideTopbar) {
+        topbar.classList.add('hidden');
+        navbar.style.top = '0px';
+      } else {
+        topbar.classList.remove('hidden');
+        navbar.style.top = '36px';
+      }
     }
 
     lastScrollY = y;

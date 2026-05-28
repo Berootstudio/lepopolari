@@ -232,7 +232,8 @@ iframe { display: block; }
 }
 .top-bar__text {
   color: var(--panna);
-  opacity: 0.9;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 .top-bar__btn {
   background: transparent;
